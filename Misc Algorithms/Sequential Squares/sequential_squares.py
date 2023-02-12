@@ -18,8 +18,8 @@ def get_run_time(fxn, *args):
 
 @get_run_time
 def vanilla_s_squares(iter_num):
-    num_list = []
-    for i in range(iter_num):
+    num_list = [0]
+    for i in range(iter_num)[1:]:
         num_list.append(i**2)
     return num_list
 
@@ -78,6 +78,7 @@ def results(stats_l):
           f'Time: {best_t}s')
     return
 
+
 def main():
     iter_num = 1000001
     stats = []
@@ -87,6 +88,7 @@ def main():
     stats.append(np1_s_squares(iter_num))
     stats.append(square_expansion(iter_num))
     results(stats)
+
 
 if __name__ == '__main__':
     main()
