@@ -78,12 +78,15 @@ def results(stats_l):
           f'Time: {best_t}s')
     return
 
+def main():
+    iter_num = 1000001
+    stats = []
+    print(f'Calculating squares 0 through {iter_num-1}\n'
+          f'{"#"*60}')
+    stats.append(vanilla_s_squares(iter_num))
+    stats.append(np1_s_squares(iter_num))
+    stats.append(square_expansion(iter_num))
+    results(stats)
 
-iter_num = 1000001
-stats = []
-print(f'Calculating squares 0 through {iter_num-1}\n'
-      f'{"#"*60}')
-stats.append(vanilla_s_squares(iter_num))
-stats.append(np1_s_squares(iter_num))
-stats.append(square_expansion(iter_num))
-results(stats)
+if __name__ == '__main__':
+    main()
