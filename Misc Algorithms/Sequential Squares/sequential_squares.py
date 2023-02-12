@@ -35,6 +35,17 @@ def vanilla_s_squares(iter_num):
 # N^2 = n^2 + 2(n) + 1
 
 @get_run_time
+def nm2_s_squares(iter_num):
+    num_list = [0]
+    prev_sq = 0  # store previous square instead of recalculating each iteration
+    for i in range(iter_num)[:-1]:
+        sq = prev_sq + 2*i + 1
+        prev_sq = sq
+        num_list.append(sq)
+    return num_list
+
+
+@get_run_time
 def np1_s_squares(iter_num):
     num_list = [0]
     prev_sq = 0  # store previous square instead of recalculating each iteration
@@ -65,7 +76,8 @@ def results(stats_l):
     best_n = name_l[0]
     for i in range(len(stats_l)-1):
         if ck_sum_l[i+1] != cur_sum:
-            print('Check Sum Error!')
+            print(f'FINAL RESULTS:\n'
+                  f'Checksum Result: FAIL\n')
             return
         if best_t > finish_t_l[i+1]:
             best_t = finish_t_l[i+1]
@@ -83,6 +95,7 @@ def main():
     print(f'Calculating squares 0 through {iter_num-1}\n'
           f'{"#"*60}')
     stats.append(vanilla_s_squares(iter_num))
+    stats.append(nm2_s_squares(iter_num))
     stats.append(np1_s_squares(iter_num))
     stats.append(square_expansion(iter_num))
     results(stats)
