@@ -36,10 +36,9 @@ def vanilla_s_squares(iter_num):
 
 @get_run_time
 def np1_s_squares(iter_num):
-    num_list = []
+    num_list = [0]
     prev_sq = 0  # store previous square instead of recalculating each iteration
     mul_slider = 0  # instead of multiplying 2n each loop, just add 2 from previous iteration
-    num_list.append(prev_sq)
     for i in range(iter_num)[1:]:
         sq = prev_sq + mul_slider + 1
         prev_sq = sq
@@ -50,9 +49,8 @@ def np1_s_squares(iter_num):
 
 @get_run_time
 def square_expansion(iter_num):
-    num_list = []
+    num_list = [0]
     prev_sq = 0
-    num_list.append(prev_sq)
     for i in range(iter_num)[1:]:
         sq = prev_sq + 2*i - 1
         prev_sq = sq
