@@ -69,6 +69,16 @@ def square_expansion(iter_num):
     return num_list
 
 
+@get_run_time
+def list_comprehension(iter_num):
+    return [x**2 for x in range(iter_num)]
+
+
+@get_run_time
+def list_comprehension_no_exp(iter_num):
+    return [x*x for x in range(iter_num)]
+
+
 def results(stats_l):
     ck_sum_l, finish_t_l, name_l = zip(*stats_l)
     cur_sum = ck_sum_l[0]
@@ -98,6 +108,8 @@ def main():
     stats.append(nm2_s_squares(iter_num))
     stats.append(np1_s_squares(iter_num))
     stats.append(square_expansion(iter_num))
+    stats.append(list_comprehension(iter_num))
+    stats.append(list_comprehension_no_exp(iter_num))
     results(stats)
 
 
